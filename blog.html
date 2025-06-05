@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Political Blog - Latest Updates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .gradient-bg {
+        background: linear-gradient(135deg, #121a2d 0%, #1e293b 100%);
+      }
+      .card-hover:hover {
+        transform: translateY(-8px);
+        transition: all 0.3s ease;
+      }
+      .pulse-animation {
+        animation: pulse 2s infinite;
+      }
+      .custom-dark {
+        background-color: #121a2d;
+      }
+      .article-page {
+        display: none;
+      }
+      .article-page.active {
+        display: block;
+      }
+      .main-page.hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-white min-h-screen">
+    <!-- Main Blog Page -->
+    <div id="mainPage" class="main-page">
+      <!-- Header -->
+      <header class="custom-dark text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto">
+          <h1 class="text-4xl font-bold text-center mb-2">Political Updates</h1>
+          <p class="text-xl text-center opacity-90">Latest News & Analysis</p>
+          <div class="mt-6 flex justify-center">
+            <div class="bg-white/20 backdrop-blur-sm rounded-full px-6 py-2">
+              <p class="text-sm">Breaking Political News & Insights</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="max-w-6xl mx-auto px-4 py-12">
+        <!-- Featured Section -->
+        <section class="mb-16">
+          <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+            Featured News
+          </h2>
+
+          <!-- Card Type 1: Featured Article Card -->
+          <div
+            class="bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden card-hover mb-8"
+          >
+            <div class="md:flex">
+              <div class="md:w-1/2">
+                <img
+                  src="image/pm_modi_pti.webp"
+                  alt="Political Meeting"
+                  class="w-full h-64 md:h-full object-cover"
+                />
+              </div>
+              <div class="md:w-1/2 p-8">
+                <div class="flex items-center mb-4">
+                  <span
+                    class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold pulse-animation"
+                    >BREAKING</span
+                  >
+                  <span class="ml-3 text-gray-500 text-sm">2 hours ago</span>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                  India-G20 Summit: Major Policy Decisions
+                </h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                  Prime Minister Modi leads India's successful G20 presidency
+                  with landmark decisions on climate action, digital
+                  transformation, and global economic cooperation. The summit
+                  concluded with historic agreements benefiting developing
+                  nations worldwide.
+                </p>
+                <button
+                  onclick="openArticle('g20-summit')"
+                  class="custom-dark hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
+                >
+                  Read Full Article →
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- News Cards Section -->
+        <section class="mb-16">
+          <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+            Latest News from India
+          </h2>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Card Type 1: Orange/White Card -->
+            <div
+              class="custom-dark text-white rounded-xl shadow-lg overflow-hidden card-hover"
+            >
+              <img
+                src="image/digital.jpg"
+                alt="Indian Parliament"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <div class="flex items-center mb-3">
+                  <span
+                    class="bg-white/20 text-white px-2 py-1 rounded text-xs font-semibold"
+                    >LOK SABHA</span
+                  >
+                  <span class="ml-2 text-white/80 text-xs">3 hours ago</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3">
+                  Modi Government Announces Digital India 2.0
+                </h3>
+                <p class="text-white/90 text-sm mb-4 leading-relaxed">
+                  Prime Minister Modi unveiled the ambitious Digital India 2.0
+                  initiative aimed at transforming India into a digitally
+                  empowered society and knowledge economy.
+                </p>
+                <div class="flex items-center justify-between">
+                  <span
+                    onclick="openArticle('digital-india')"
+                    class="bg-white text-orange-500 px-3 py-1 rounded text-sm font-semibold hover:bg-gray-100 cursor-pointer transition-colors"
+                  >
+                    Read More
+                  </span>
+                  <div class="flex items-center text-white/70 text-xs">
+                    <svg
+                      class="w-4 h-4 mr-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                      <path
+                        fill-rule="evenodd"
+                        d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    1.2K views
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Type 2: Dark Blue Card -->
+            <div
+              class="custom-dark rounded-xl shadow-lg overflow-hidden card-hover text-white"
+            >
+              <div class="p-6">
+                <div class="flex items-center mb-4">
+                  <img
+                    src="image/neta g.jpg"
+                    alt="Indian Political Leader"
+                    class="w-16 h-16 rounded-full border-4 border-white/30"
+                  />
+                  <div class="ml-4">
+                    <h3 class="text-xl font-bold">Vishal Singh</h3>
+                    <p class="text-white/80 text-sm">BJP Leader</p>
+                  </div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 mb-4">
+                  <p class="text-sm leading-relaxed">
+                    "We must ensure that every citizen of India has access to
+                    quality education, healthcare, and employment opportunities
+                    for a truly developed nation."
+                  </p>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-4 text-sm">
+                    <span>👥 1.1k followers</span>
+                    <span>📊 68% approval</span>
+                  </div>
+                  <button
+                    class="bg-white text-gray-800 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-colors"
+                  >
+                    Follow
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Type 3: Green/White Card -->
+            <div
+              class="custom-dark text-white rounded-xl shadow-lg overflow-hidden card-hover"
+            >
+              <img
+                src="image/khejriwal.jpg"
+                alt="Indian Government Building"
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-6">
+                <div class="flex items-center mb-3">
+                  <span
+                    class="bg-white/20 text-white px-2 py-1 rounded text-xs font-semibold"
+                    >DELHI</span
+                  >
+                  <span class="ml-2 text-white/80 text-xs">5 hours ago</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3">
+                  Kejriwal's Education Reform Success
+                </h3>
+                <p class="text-white/90 text-sm mb-4 leading-relaxed">
+                  Delhi Chief Minister Arvind Kejriwal announces remarkable
+                  improvements in government school infrastructure and student
+                  performance across the capital.
+                </p>
+                <div class="flex items-center justify-between">
+                  <span
+                    onclick="openArticle('education-reform')"
+                    class="bg-white text-green-600 px-3 py-1 rounded text-sm font-semibold hover:bg-gray-100 cursor-pointer transition-colors"
+                  >
+                    Read More
+                  </span>
+                  <div class="flex items-center text-white/70 text-xs">
+                    <svg
+                      class="w-4 h-4 mr-1"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                      <path
+                        fill-rule="evenodd"
+                        d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    890 views
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Trending Topics -->
+
+        <section
+          class="bg-white border border-gray-200 rounded-2xl shadow-lg p-8"
+        >
+          <h2 class="text-2xl font-bold text-gray-800 mb-6">Trending Topics</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div
+              class="custom-dark  text-white p-4 rounded-lg card-hover cursor-pointer"
+            >
+              <h4 class="font-semibold">#ModiGovernment</h4>
+              <p class="text-sm opacity-90">25K posts</p>
+            </div>
+            <div
+              class="custom-dark text-white p-4 rounded-lg card-hover cursor-pointer"
+            >
+              <h4 class="font-semibold">#DigitalIndia</h4>
+              <p class="text-sm opacity-90">18.5K posts</p>
+            </div>
+            <div
+              class="custom-dark  text-white p-4 rounded-lg card-hover cursor-pointer"
+            >
+              <h4 class="font-semibold">#AatmanirbharBharat</h4>
+              <p class="text-sm opacity-90">32K posts</p>
+            </div>
+            <div
+              class="custom-dark text-white p-4 rounded-lg card-hover cursor-pointer"
+            >
+              <h4 class="font-semibold">#IndiaG20</h4>
+              <p class="text-sm opacity-90">15.7K posts</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="custom-dark text-white py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+          <p class="text-gray-300">
+            &copy; 2025 Political Blog. All rights reserved.
+          </p>
+          <div class="mt-4 flex justify-center space-x-6">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"
+              >Contact</a
+            >
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"
+              >Privacy</a
+            >
+            <a href="#" class="text-gray-400 hover:text-white transition-colors"
+              >About</a
+            >
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Article Pages -->
+    <!-- G20 Summit Article -->
+    <div id="g20-summit" class="article-page">
+      <header class="custom-dark text-white py-8 px-4">
+        <div class="max-w-4xl mx-auto">
+          <button
+            onclick="goBack()"
+            class="mb-4 bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg transition-colors"
+          >
+            ← Back to Home
+          </button>
+          <h1 class="text-4xl font-bold mb-2">
+            India-G20 Summit: Major Policy Decisions
+          </h1>
+          <p class="text-white/80">Published 2 hours ago | Political News</p>
+        </div>
+      </header>
+
+      <main class="max-w-4xl mx-auto px-4 py-12">
+        <img
+          src="image/pm_modi_pti.webp"
+          alt="G20 Summit"
+          class="w-full h-64 object-cover rounded-xl mb-8"
+        />
+
+        <div class="bg-white rounded-xl shadow-lg p-8">
+          <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+            India's G20 presidency under Prime Minister Narendra Modi has
+            concluded with unprecedented success, marking a historic milestone
+            in the country's diplomatic journey. The summit, held in New Delhi,
+            brought together world leaders to address critical global
+            challenges.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">
+            Key Achievements
+          </h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            The G20 summit achieved several breakthrough agreements, including
+            comprehensive climate action plans, digital transformation
+            initiatives, and economic cooperation frameworks. Prime Minister
+            Modi's leadership in facilitating consensus among diverse nations
+            has been widely praised by international media.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">Global Impact</h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            The decisions made during India's G20 presidency will have
+            far-reaching implications for developing nations worldwide. The
+            focus on sustainable development, digital inclusion, and climate
+            resilience reflects India's commitment to global welfare and
+            progress.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">
+            Future Implications
+          </h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            As India transitions the G20 presidency to Brazil, the foundation
+            laid during this summit will continue to influence international
+            policy and cooperation. The success of India's presidency has
+            elevated the country's status as a key player in global governance.
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <!-- Digital India Article -->
+    <div id="digital-india" class="article-page">
+      <header class="custom-dark text-white py-8 px-4">
+        <div class="max-w-4xl mx-auto">
+          <button
+            onclick="goBack()"
+            class="mb-4 bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg transition-colors"
+          >
+            ← Back to Home
+          </button>
+          <h1 class="text-4xl font-bold mb-2">
+            Modi Government Announces Digital India 2.0
+          </h1>
+          <p class="text-white/80">
+            Published 3 hours ago | Technology & Policy
+          </p>
+        </div>
+      </header>
+
+      <main class="max-w-4xl mx-auto px-4 py-12">
+        <img
+          src="image/digital.jpg"
+          alt="Digital India"
+          class="w-full h-64 object-cover rounded-xl mb-8"
+        />
+
+        <div class="bg-white rounded-xl shadow-lg p-8">
+          <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+            Prime Minister Narendra Modi today unveiled the ambitious Digital
+            India 2.0 initiative, marking the next phase of India's digital
+            transformation journey. This comprehensive program aims to transform
+            India into a digitally empowered society and knowledge economy.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">Key Components</h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            Digital India 2.0 encompasses several revolutionary components
+            including nationwide 5G deployment, artificial intelligence
+            integration in governance, blockchain-based service delivery, and
+            comprehensive digital literacy programs reaching every corner of the
+            country.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">
+            Implementation Timeline
+          </h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            The initiative will be rolled out in phases over the next five
+            years, with priority given to rural areas and underserved
+            communities. The government has allocated significant resources to
+            ensure successful implementation and measurable outcomes.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">Economic Impact</h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            Experts predict that Digital India 2.0 will create millions of new
+            jobs, boost GDP growth, and position India as a global leader in
+            digital innovation. The initiative is expected to attract
+            substantial foreign investment and foster entrepreneurship across
+            the nation.
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <!-- Education Reform Article -->
+    <div id="education-reform" class="article-page">
+      <header class="custom-dark text-white py-8 px-4">
+        <div class="max-w-4xl mx-auto">
+          <button
+            onclick="goBack()"
+            class="mb-4 bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg transition-colors"
+          >
+            ← Back to Home
+          </button>
+          <h1 class="text-4xl font-bold mb-2">
+            Kejriwal's Education Reform Success
+          </h1>
+          <p class="text-white/80">Published 5 hours ago | Education Policy</p>
+        </div>
+      </header>
+
+      <main class="max-w-4xl mx-auto px-4 py-12">
+        <img
+          src="image/khejriwal.jpg"
+          alt="Delhi Schools"
+          class="w-full h-64 object-cover rounded-xl mb-8"
+        />
+
+        <div class="bg-white rounded-xl shadow-lg p-8">
+          <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+            Delhi Chief Minister Arvind Kejriwal announced remarkable
+            improvements in government school infrastructure and student
+            performance across the capital. The comprehensive education reforms
+            implemented over the past few years have yielded extraordinary
+            results.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">
+            Performance Metrics
+          </h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            Government school students in Delhi have achieved unprecedented
+            success in board examinations, with pass rates increasing by over
+            40% compared to previous years. The improvement in learning outcomes
+            has been consistent across all subjects and grade levels.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">
+            Infrastructure Development
+          </h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            The Delhi government has invested heavily in upgrading school
+            infrastructure, including modern classrooms, laboratories,
+            libraries, and sports facilities. Over 500 schools have been
+            completely renovated, creating world-class learning environments for
+            students.
+          </p>
+
+          <h2 class="text-2xl font-bold text-gray-800 mb-4">
+            Teacher Training Programs
+          </h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            Comprehensive teacher training programs have been implemented to
+            enhance pedagogical skills and incorporate modern teaching
+            methodologies. The focus on continuous professional development has
+            significantly improved the quality of education delivery in
+            government schools.
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      function openArticle(articleId) {
+        // Hide main page
+        document.getElementById("mainPage").classList.add("hidden");
+
+        // Show selected article page
+        document.getElementById(articleId).classList.add("active");
+
+        // Scroll to top
+        window.scrollTo(0, 0);
+      }
+
+      function goBack() {
+        // Hide all article pages
+        const articlePages = document.querySelectorAll(".article-page");
+        articlePages.forEach((page) => {
+          page.classList.remove("active");
+        });
+
+        // Show main page
+        document.getElementById("mainPage").classList.remove("hidden");
+
+        // Scroll to top
+        window.scrollTo(0, 0);
+      }
+    </script>
+  </body>
+</html>

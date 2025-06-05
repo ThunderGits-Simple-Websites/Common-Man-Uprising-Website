@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vishal Singh - Executive Leader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+            colors: {
+              primary: "#0F172A",
+              accent: "#F59E0B",
+              secondary: "#1E293B",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-slate-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur">
+      <div class="max-w-6xl mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="text-2xl font-bold">
+            <span class="gradient-text">Vishal</span>
+            <span class="gradient-text">Singh</span>
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#home"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              >About</a
+            >
+            <a
+              href="#experience"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              >Experience</a
+            >
+            <a
+              href="blog.html"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              target="_blank"
+              >Our Blogs</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              >Contact</a
+            >
+          </div>
+          <button
+            class="md:hidden text-white focus:outline-none"
+            onclick="toggleMenu()"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
+          <div class="flex flex-col space-y-3">
+            <a
+              href="#home"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              >About</a
+            >
+            <a
+              href="#experience"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              >Experience</a
+            >
+            <a
+              href="blog.html"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              target="_blank"
+              >Our Blogs</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-screen hero-bg flex items-center justify-center relative overflow-hidden"
+    >
+      <!-- Background Elements -->
+      <div class="absolute inset-0">
+        <div
+          class="absolute top-20 left-10 w-72 h-72 bg-amber-400 opacity-5 rounded-full blur-3xl floating"
+        ></div>
+        <div
+          class="absolute bottom-20 right-10 w-96 h-96 bg-orange-500 opacity-5 rounded-full blur-3xl floating"
+          style="animation-delay: -3s"
+        ></div>
+        <div
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-screen h-screen"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-amber-400/5 via-transparent to-orange-500/5"
+          ></div>
+        </div>
+      </div>
+
+      <div class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Left Content -->
+          <div class="space-y-8">
+            <div class="space-y-4">
+              <p class="text-amber-400 font-medium text-lg">
+                Executive Leader & Strategist
+              </p>
+              <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
+                <span class="text-white">I'm</span>
+                <span class="gradient-text block p-2">Vishal Singh</span>
+              </h1>
+              <p class="text-xl text-gray-300 leading-relaxed max-w-lg">
+                Transforming businesses through visionary leadership, strategic
+                innovation, and data-driven decision making. Building the
+                future, one team at a time.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                class="bg-gradient-to-r from-amber-400 to-orange-500 text-black px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:shadow-amber-400/25 transition-all duration-300 transform hover:scale-105"
+              >
+                Let's Connect
+              </a>
+              <a
+                href="#portfolio"
+                class="border border-amber-400 text-amber-400 px-8 py-4 rounded-full font-semibold hover:bg-amber-400 hover:text-black transition-all duration-300"
+              >
+                View Work
+              </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-8 pt-8">
+              <div class="text-center">
+                <div class="text-3xl font-bold gradient-text">15+</div>
+                <div class="text-gray-400 text-sm">Years Experience</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold gradient-text">200+</div>
+                <div class="text-gray-400 text-sm">Projects Led</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold gradient-text">50+</div>
+                <div class="text-gray-400 text-sm">Team Members</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Content - Profile Image -->
+          <div class="relative">
+            <div class="relative z-10">
+              <div class="w-80 h-80 mx-auto relative">
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full blur-2xl opacity-20"
+                ></div>
+                <img
+                  src="image/neta g.jpg"
+                  alt="Vishal Singh"
+                  class="relative z-10 w-full h-full rounded-full object-cover border-4 border-amber-400/30"
+                />
+              </div>
+            </div>
+            <!-- Floating Elements -->
+            <div
+              class="absolute -top-4 -right-4 w-20 h-20 bg-amber-400 rounded-full opacity-20 floating"
+            ></div>
+            <div
+              class="absolute -bottom-8 -left-8 w-32 h-32 bg-orange-500 rounded-full opacity-10 floating"
+              style="animation-delay: -2s"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-800">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16 scroll-reveal">
+          <p class="text-amber-400 font-medium mb-4">Get To Know Me</p>
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+            About <span class="gradient-text">Me</span>
+          </h2>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto"
+          ></div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <!-- Left Content -->
+          <div class="space-y-6 scroll-reveal">
+            <h3 class="text-3xl font-bold">
+              Leading with Vision,
+              <span class="text-white">Executing with Precision</span>
+            </h3>
+            <p class="text-gray-300 text-lg leading-relaxed">
+              With over 15 years of executive leadership experience, I've built
+              my career on transforming challenges into opportunities. My
+              approach combines strategic thinking with hands-on execution,
+              ensuring that vision becomes reality.
+            </p>
+            <p class="text-gray-300 text-lg leading-relaxed">
+              I believe in empowering teams, fostering innovation, and creating
+              sustainable value that drives long-term success. Every project I
+              lead is an opportunity to push boundaries and set new standards of
+              excellence.
+            </p>
+
+            <!-- Skills -->
+            <div class="space-y-4 pt-6">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-white font-medium"
+                    >Strategic Leadership</span
+                  >
+                  <span class="text-amber-400">95%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="95%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-white font-medium">Team Management</span>
+                  <span class="text-amber-400">90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="90%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span class="text-white font-medium"
+                    >Business Development</span
+                  >
+                  <span class="text-amber-400">88%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-width="88%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Content -->
+          <div class="space-y-6 scroll-reveal">
+            <div class="grid grid-cols-2 gap-6">
+              <div
+                class="card-glow bg-slate-700/50 p-6 rounded-2xl text-center"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4"
+                >
+                  <svg
+                    class="w-6 h-6 text-black"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    ></path>
+                  </svg>
+                </div>
+                <h4 class="text-xl font-bold mb-2">Innovation</h4>
+                <p class="text-gray-400 text-sm">
+                  Driving cutting-edge solutions
+                </p>
+              </div>
+
+              <div
+                class="card-glow bg-slate-700/50 p-6 rounded-2xl text-center"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4"
+                >
+                  <svg
+                    class="w-6 h-6 text-black"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <h4 class="text-xl font-bold mb-2">Excellence</h4>
+                <p class="text-gray-400 text-sm">
+                  Committed to quality delivery
+                </p>
+              </div>
+
+              <div
+                class="card-glow bg-slate-700/50 p-6 rounded-2xl text-center"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4"
+                >
+                  <svg
+                    class="w-6 h-6 text-black"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <h4 class="text-xl font-bold mb-2">Leadership</h4>
+                <p class="text-gray-400 text-sm">
+                  Inspiring high-performance teams
+                </p>
+              </div>
+
+              <div
+                class="card-glow bg-slate-700/50 p-6 rounded-2xl text-center"
+              >
+                <div
+                  class="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4"
+                >
+                  <svg
+                    class="w-6 h-6 text-black"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                    ></path>
+                  </svg>
+                </div>
+                <h4 class="text-xl font-bold mb-2">Growth</h4>
+                <p class="text-gray-400 text-sm">
+                  Scaling businesses sustainably
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-slate-900">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16 scroll-reveal">
+          <p class="text-amber-400 font-medium mb-4">Career Journey</p>
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+            My <span class="gradient-text">Experience</span>
+          </h2>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto"
+          ></div>
+        </div>
+
+        <div class="space-y-8">
+          <!-- Experience Item 1 -->
+          <div class="card-glow bg-slate-800/50 p-8 rounded-3xl scroll-reveal">
+            <div
+              class="flex flex-col lg:flex-row lg:items-center justify-between mb-6"
+            >
+              <div>
+                <h3 class="text-2xl font-bold mb-2">Chief Executive Officer</h3>
+                <p class="text-amber-400 font-semibold text-lg">
+                  TechNova Solutions
+                </p>
+              </div>
+              <div
+                class="text-gray-400 font-medium bg-slate-700 px-4 py-2 rounded-full"
+              >
+                2021 - Present
+              </div>
+            </div>
+            <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+              Leading a 300+ employee tech company through digital
+              transformation, achieving 45% revenue growth and expanding into 5
+              international markets. Pioneered innovative SaaS solutions that
+              serve over 10,000 clients globally.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <span
+                class="bg-amber-400/20 text-amber-400 px-4 py-2 rounded-full text-sm font-medium"
+                >Strategic Planning</span
+              >
+              <span
+                class="bg-orange-400/20 text-orange-400 px-4 py-2 rounded-full text-sm font-medium"
+                >Digital Transformation</span
+              >
+              <span
+                class="bg-blue-400/20 text-blue-400 px-4 py-2 rounded-full text-sm font-medium"
+                >Global Expansion</span
+              >
+            </div>
+          </div>
+
+          <!-- Experience Item 2 -->
+          <div class="card-glow bg-slate-800/50 p-8 rounded-3xl scroll-reveal">
+            <div
+              class="flex flex-col lg:flex-row lg:items-center justify-between mb-6"
+            >
+              <div>
+                <h3 class="text-2xl font-bold mb-2">
+                  Vice President Operations
+                </h3>
+                <p class="text-amber-400 font-semibold text-lg">InnovateCorp</p>
+              </div>
+              <div
+                class="text-gray-400 font-medium bg-slate-700 px-4 py-2 rounded-full"
+              >
+                2018 - 2021
+              </div>
+            </div>
+            <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+              Streamlined operations across 12 facilities, implemented lean
+              methodologies that reduced costs by 30% and improved efficiency by
+              40%. Led cross-functional teams to deliver $50M+ infrastructure
+              projects.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <span
+                class="bg-green-400/20 text-green-400 px-4 py-2 rounded-full text-sm font-medium"
+                >Operations Management</span
+              >
+              <span
+                class="bg-purple-400/20 text-purple-400 px-4 py-2 rounded-full text-sm font-medium"
+                >Process Optimization</span
+              >
+              <span
+                class="bg-red-400/20 text-red-400 px-4 py-2 rounded-full text-sm font-medium"
+                >Cost Reduction</span
+              >
+            </div>
+          </div>
+
+          <!-- Experience Item 3 -->
+          <div class="card-glow bg-slate-800/50 p-8 rounded-3xl scroll-reveal">
+            <div
+              class="flex flex-col lg:flex-row lg:items-center justify-between mb-6"
+            >
+              <div>
+                <h3 class="text-2xl font-bold mb-2">Director of Strategy</h3>
+                <p class="text-amber-400 font-semibold text-lg">
+                  Growth Partners LLC
+                </p>
+              </div>
+              <div
+                class="text-gray-400 font-medium bg-slate-700 px-4 py-2 rounded-full"
+              >
+                2015 - 2018
+              </div>
+            </div>
+            <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+              Developed strategic growth initiatives, managed key partnerships
+              worth $25M+ annually, and established market presence in 8 new
+              regions. Built high-performing teams that consistently exceeded
+              targets.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <span
+                class="bg-indigo-400/20 text-indigo-400 px-4 py-2 rounded-full text-sm font-medium"
+                >Strategic Development</span
+              >
+              <span
+                class="bg-pink-400/20 text-pink-400 px-4 py-2 rounded-full text-sm font-medium"
+                >Partnership Management</span
+              >
+              <span
+                class="bg-yellow-400/20 text-yellow-400 px-4 py-2 rounded-full text-sm font-medium"
+                >Market Expansion</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-slate-800">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16 scroll-reveal">
+          <p class="text-amber-400 font-medium mb-4">Key Achievements</p>
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+            Success <span class="gradient-text">Stories</span>
+          </h2>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto"
+          ></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Achievement 1 -->
+          <div
+            class="card-glow bg-slate-900/50 p-8 rounded-3xl text-center scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-black"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Revenue Growth</h3>
+            <div class="text-4xl font-bold gradient-text mb-2">45%</div>
+            <p class="text-gray-400">
+              Annual revenue increase achieved through strategic leadership and
+              market expansion initiatives
+            </p>
+          </div>
+
+          <!-- Achievement 2 -->
+          <div
+            class="card-glow bg-slate-900/50 p-8 rounded-3xl text-center scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-black"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Team Development</h3>
+            <div class="text-4xl font-bold gradient-text mb-2">85%</div>
+            <p class="text-gray-400">
+              Team members promoted to leadership roles under my mentorship and
+              guidance
+            </p>
+          </div>
+
+          <!-- Achievement 3 -->
+          <div
+            class="card-glow bg-slate-900/50 p-8 rounded-3xl text-center scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-black"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Market Expansion</h3>
+            <div class="text-4xl font-bold gradient-text mb-2">12</div>
+            <p class="text-gray-400">
+              New markets successfully entered with sustained growth and market
+              leadership
+            </p>
+          </div>
+
+          <!-- Achievement 4 -->
+
+          <div
+            class="card-glow bg-slate-900/50 p-8 rounded-3xl text-center scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-black"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.657 0 3 .895 3 2s-1.343 2-3 2-3 .895-3 2 1.343 2 3 2"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Cost Savings</h3>
+            <div class="text-4xl font-bold gradient-text mb-2">$30M+</div>
+            <p class="text-gray-400">
+              Operational cost savings delivered through process optimization
+              and lean initiatives
+            </p>
+          </div>
+          <!-- Achievement 5 -->
+          <div
+            class="card-glow bg-slate-900/50 p-8 rounded-3xl text-center scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-black"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Digital Transformation</h3>
+            <div class="text-4xl font-bold gradient-text mb-2">95%</div>
+            <p class="text-gray-400">
+              Process automation achieved through digital transformation
+              initiatives and technology adoption
+            </p>
+          </div>
+
+          <!-- Achievement 6 -->
+          <div
+            class="card-glow bg-slate-900/50 p-8 rounded-3xl text-center scroll-reveal"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-black"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Quality Excellence</h3>
+            <div class="text-4xl font-bold gradient-text mb-2">98.5%</div>
+            <p class="text-gray-400">
+              Customer satisfaction score maintained through continuous
+              improvement and quality assurance programs
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 scroll-reveal">
+          <p class="text-amber-400 font-medium mb-4">Let's Connect</p>
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-white">
+            Get In <span class="gradient-text">Touch</span>
+          </h2>
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto"
+          ></div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <!-- Contact Information Side -->
+          <div class="scroll-reveal">
+            <div class="bg-slate-800 rounded-3xl p-8 shadow-lg h-full">
+              <h3 class="text-2xl font-bold text-white mb-8">
+                Contact Information
+              </h3>
+
+              <!-- Location -->
+              <div class="contact-info-item mb-8">
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0"
+                  >
+                    <svg
+                      class="w-6 h-6 text-black"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold mb-2">
+                      Current Location
+                    </h4>
+                    <p class="text-gray-300">Patna Bihar</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="contact-info-item mb-8">
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0"
+                  >
+                    <svg
+                      class="w-6 h-6 text-black"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold mb-2">Email</h4>
+                    <p class="text-gray-300">vishal.sinh03@gmail.com</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="contact-info-item mb-8">
+                <div class="flex items-start space-x-4">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0"
+                  >
+                    <svg
+                      class="w-6 h-6 text-black"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="text-white font-semibold mb-2">Phone</h4>
+                    <p class="text-gray-300">+919229551125</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Media Links -->
+              <div class="mt-10">
+                <h4 class="text-white font-semibold mb-6">Follow Me</h4>
+                <div class="flex space-x-4">
+                  <!-- LinkedIn -->
+                  <a
+                    href="https://www.linkedin.com/in/vishal-singh-863416131"
+                    class="social-icon block w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-6 h-6 text-black"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                      />
+                    </svg>
+                  </a>
+
+                  <!-- facebook -->
+                  <a
+                    href="https://www.facebook.com/vishal.sinh03"
+                    class="social-icon block w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl flex items-center justify-center hover:scale-110 transition-transform duration-200"
+                  >
+                    <svg
+                      class="w-6 h-6 text-black"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                      />
+                    </svg>
+                  </a>
+
+                  <!-- Twitter -->
+                  <a
+                    href="https://x.com/Vishal_Sinh03"
+                    class="social-icon block w-12 h-12 bg-gradient-to-r from-amber-400 to-orange-500 rounded-xl flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-6 h-6 text-black"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Side -->
+          <div class="scroll-reveal">
+            <form
+              class="bg-slate-800 rounded-3xl p-8 shadow-lg space-y-6 h-full"
+            >
+              <h3 class="text-2xl font-bold text-white mb-6">Send Message</h3>
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-gray-300 mb-2 font-medium" for="name"
+                    >Name</label
+                  >
+                  <input
+                    class="w-full px-4 py-3 rounded-xl bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-amber-400 transition-all duration-300"
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter Your name"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-gray-300 mb-2 font-medium"
+                    for="email"
+                    >Email</label
+                  >
+                  <input
+                    class="w-full px-4 py-3 rounded-xl bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-amber-400 transition-all duration-300"
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="Enter Your email"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  class="block text-gray-300 mb-2 font-medium"
+                  for="subject"
+                  >Subject</label
+                >
+                <input
+                  class="w-full px-4 py-3 rounded-xl bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-amber-400 transition-all duration-300"
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="Enter subject"
+                  required
+                />
+              </div>
+
+              <div>
+                <label
+                  class="block text-gray-300 mb-2 font-medium"
+                  for="message"
+                  >Message</label
+                >
+                <textarea
+                  class="w-full px-4 py-3 rounded-xl bg-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-amber-400 transition-all duration-300 resize-none"
+                  id="message"
+                  name="message"
+                  rows="6"
+                  required
+                  placeholder="Send Your message here..."
+                ></textarea>
+              </div>
+
+              <div class="text-center pt-4">
+                <button
+                  type="submit"
+                  class="bg-gradient-to-r from-amber-400 to-orange-500 text-black px-10 py-4 rounded-full font-semibold hover:shadow-2xl hover:shadow-amber-400/25 transition-all duration-300 transform hover:scale-105 w-full md:w-auto"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-slate-800 py-8 mt-20">
+      <div class="max-w-6xl mx-auto px-6 text-center text-gray-400">
+        &copy; 2025 Vishal Singh. All rights reserved.
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
