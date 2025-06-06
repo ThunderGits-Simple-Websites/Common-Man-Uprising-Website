@@ -6,123 +6,263 @@
     <title>Political Blog - Latest Updates</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      html{
+      html {
         scroll-behavior: smooth;
       }
+
       .gradient-bg {
-        background: linear-gradient(135deg, #121a2d 0%, #1e293b 100%);
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
       }
-      .card-hover:hover {
-        transform: translateY(-8px);
+
+      .gradient-text {
+        background: linear-gradient(135deg, #f59e0b, #ea580c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-blur {
+        background: rgba(30, 41, 59, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .card-hover {
         transition: all 0.3s ease;
       }
+
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+
       .pulse-animation {
         animation: pulse 2s infinite;
       }
-      .custom-dark {
-        background-color: #121a2d;
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
       }
+
       .article-page {
         display: none;
       }
+
       .article-page.active {
         display: block;
       }
+
       .main-page.hidden {
         display: none;
       }
-      .navbar-shadow {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+      .floating-action {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 40;
+      }
+
+      .news-ticker {
+        background: linear-gradient(90deg, #dc2626, #ea580c);
+        animation: ticker 30s linear infinite;
+      }
+
+      @keyframes ticker {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .glassmorphism {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
     </style>
   </head>
-  <body class="bg-white min-h-screen">
+  <body class="bg-gray-50 min-h-screen">
+    <!-- Breaking News Ticker -->
+    <div class="bg-red-600 text-white py-2 overflow-hidden">
+      <div class="news-ticker whitespace-nowrap py-1">
+        <span class="inline-block px-8"
+          >🔥 BREAKING: Modi Government announces new economic reforms</span
+        >
+        <span class="inline-block px-8"
+          >📊 India's GDP growth exceeds expectations</span
+        >
+        <span class="inline-block px-8"
+          >🌟 Digital India 2.0 receives international acclaim</span
+        >
+        <span class="inline-block px-8"
+          >⚡ Parliament session begins with key bills</span
+        >
+      </div>
+    </div>
     <!-- Sticky Navbar -->
-    <nav class="custom-dark text-white sticky top-0 z-50 navbar-shadow">
-      <div class="max-w-6xl mx-auto px-4">
-        <div class="flex items-center justify-between h-16">
-          <!-- Logo/Brand -->
-          <div class="flex-shrink-0">
-            <h1 class="text-2xl font-bold">Political Updates</h1>
+    <nav class="sticky top-0 w-full z-50 nav-blur">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="text-2xl font-bold">
+            <span class="gradient-text">Vishal</span>
+            <span class="gradient-text">Singh</span>
           </div>
-          
-          <!-- Navigation Menu -->
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-8">
-              <a href="#featuredNews" class="hover:text-gray-300 px-3 py-2 text-sm font-medium transition-colors">Home</a>
-              <a href="#latestNews" class="hover:text-gray-300 px-3 py-2 text-sm font-medium transition-colors">Latest News</a>
-              <a href="#Trending" class="hover:text-gray-300 px-3 py-2 text-sm font-medium transition-colors">Analysis</a>
-              <a href="#" class="hover:text-gray-300 px-3 py-2 text-sm font-medium transition-colors">Politics</a>
-              <a href="#" class="hover:text-gray-300 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
-            </div>
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#home"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300 font-medium"
+              >Home</a
+            >
+            <a
+              href="#featured"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300 font-medium"
+              >Featured</a
+            >
+            <a
+              href="#latest"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300 font-medium"
+              >Latest</a
+            >
+            <a
+              href="#trending"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300 font-medium"
+              >Trending</a
+            >
+            <a
+              href="index.html"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300 font-medium"
+              >Profile</a
+            >
           </div>
-
-          <!-- Search and Mobile Menu Button -->
-          <div class="flex items-center space-x-4">
-            <!-- Search Icon -->
-            <button class="hover:text-gray-300 transition-colors">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-              </svg>
-            </button>
-            
-            <!-- Mobile menu button -->
-            <div class="md:hidden">
-              <button onclick="toggleMobileMenu()" class="hover:text-gray-300 transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
+          <button
+            class="md:hidden text-white focus:outline-none"
+            onclick="toggleMobileMenu()"
+            aria-label="Open Menu"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
         </div>
-        
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="md:hidden hidden border-t border-gray-700">
-          <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="#featuredNews" class="hover:bg-gray-700 block px-3 py-2 text-base font-medium transition-colors">Home</a>
-            <a href="#latestNews" class="hover:bg-gray-700 block px-3 py-2 text-base font-medium transition-colors">Latest News</a>
-            <a href="#Trending" class="hover:bg-gray-700 block px-3 py-2 text-base font-medium transition-colors">Analysis</a>
-            <a href="#" class="hover:bg-gray-700 block px-3 py-2 text-base font-medium transition-colors">Politics</a>
-            <a href="#" class="hover:bg-gray-700 block px-3 py-2 text-base font-medium transition-colors">Contact</a>
+        <div
+          id="mobileMenu"
+          class="hidden md:hidden absolute left-0 top-full w-full bg-gray-900 z-50 shadow-lg"
+        >
+          <div class="flex flex-col space-y-3 p-4">
+            <a
+              href="#home"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              >Home</a
+            >
+            <a
+              href="#featured"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              >Featured</a
+            >
+            <a
+              href="#latest"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              >Latest</a
+            >
+            <a
+              href="#trending"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              >Trending</a
+            >
+            <a
+              href="index.html"
+              class="text-gray-300 hover:text-amber-400 transition-colors duration-300"
+              >Profile</a
+            >
           </div>
         </div>
       </div>
     </nav>
-
     <!-- Main Blog Page -->
     <div id="mainPage" class="main-page">
-      <main class="max-w-6xl mx-auto px-4 py-12">
-        <!-- Featured Section -->
-        <section class="mb-16">
-          <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center" id="featuredNews">
-            Featured News
-          </h2>
+      <!-- Hero Section -->
+      <section id="home" class="pt-24 pb-16 gradient-bg">
+        <div class="max-w-7xl mx-auto px-6">
+          <div class="text-center text-white">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+              Political <span class="gradient-text">Insights</span>
+            </h1>
+            <p
+              class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            >
+              Stay informed with the latest political developments, policy
+              updates, and governance news from India
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                class="bg-amber-500 hover:bg-amber-600 text-black px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105"
+              >
+                Explore News
+              </button>
+              <button
+                class="glassmorphism text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:bg-white/20"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <!-- Card Type 1: Featured Article Card -->
+      <main class="max-w-7xl mx-auto px-6 ">
+        <!-- Featured Section -->
+        <section id="featured" class="mb-20">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4 mt-5">Featured News</h2>
+            <div
+              class="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto rounded-full"
+            ></div>
+          </div>
+
+          <!-- Main Featured Article -->
           <div
-            class="bg-white border border-gray-200 rounded-2xl shadow-xl overflow-hidden card-hover mb-8"
+            class="bg-white border border-gray-200 rounded-3xl shadow-2xl overflow-hidden card-hover mb-12"
           >
             <div class="md:flex">
               <div class="md:w-1/2">
                 <img
-                  src="pm_modi_pti.webp"
+                  src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=600&h=400&fit=crop"
                   alt="Political Meeting"
                   class="w-full h-64 md:h-full object-cover"
                 />
               </div>
-              <div class="md:w-1/2 p-8">
-                <div class="flex items-center mb-4">
+              <div class="md:w-1/2 p-8 lg:p-12">
+                <div class="flex items-center mb-6">
                   <span
-                    class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold pulse-animation"
+                    class="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold pulse-animation"
                     >BREAKING</span
                   >
-                  <span class="ml-3 text-gray-500 text-sm">2 hours ago</span>
+                  <span class="ml-4 text-gray-500 text-sm">2 hours ago</span>
                 </div>
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">
-                  India-G20 Summit: Major Policy Decisions
+                <h3 class="text-3xl font-bold text-gray-800 mb-6 leading-tight">
+                  India-G20 Summit: Major Policy Decisions Shape Global Future
                 </h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">
+                <p class="text-gray-600 mb-8 leading-relaxed text-lg">
                   Prime Minister Modi leads India's successful G20 presidency
                   with landmark decisions on climate action, digital
                   transformation, and global economic cooperation. The summit
@@ -130,8 +270,7 @@
                   nations worldwide.
                 </p>
                 <button
-                  onclick="openArticle('g20-summit')"
-                  class="custom-dark hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300"
+                  class="bg-gray-900 hover:bg-gray-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105"
                 >
                   Read Full Article →
                 </button>
@@ -140,46 +279,51 @@
           </div>
         </section>
 
-        <!-- News Cards Section -->
-        <section class="mb-16">
-          <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center" id="latestNews">
-            Latest News from India
-          </h2>
+        <!-- Latest News Cards Section -->
+        <section id="latest" class="mb-20">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">
+              Latest News from India
+            </h2>
+            <div
+              class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"
+            ></div>
+          </div>
 
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Card Type 1: Orange/White Card -->
+            <!-- Digital India Card -->
             <div
-              class="custom-dark text-white rounded-xl shadow-lg overflow-hidden card-hover"
+              class="bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-2xl shadow-xl overflow-hidden card-hover"
             >
               <img
                 src="digital.jpg"
-                alt="Indian Parliament"
+                alt="Digital India"
                 class="w-full h-48 object-cover"
               />
               <div class="p-6">
-                <div class="flex items-center mb-3">
+                <div class="flex items-center mb-4">
                   <span
-                    class="bg-white/20 text-white px-2 py-1 rounded text-xs font-semibold"
-                    >LOK SABHA</span
+                    class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold"
+                    >TECHNOLOGY</span
                   >
-                  <span class="ml-2 text-white/80 text-xs">3 hours ago</span>
+                  <span class="ml-3 text-gray-300 text-xs">3 hours ago</span>
                 </div>
                 <h3 class="text-xl font-bold mb-3">
                   Modi Government Announces Digital India 2.0
                 </h3>
-                <p class="text-white/90 text-sm mb-4 leading-relaxed">
+                <p class="text-gray-300 text-sm mb-6 leading-relaxed">
                   Prime Minister Modi unveiled the ambitious Digital India 2.0
                   initiative aimed at transforming India into a digitally
                   empowered society and knowledge economy.
                 </p>
                 <div class="flex items-center justify-between">
-                  <span
-                    onclick="openArticle('digital-india')"
-                    class="bg-white text-orange-500 px-3 py-1 rounded text-sm font-semibold hover:bg-gray-100 cursor-pointer transition-colors"
+                  <button
+                 
+                    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors"
                   >
                     Read More
-                  </span>
-                  <div class="flex items-center text-white/70 text-xs">
+                  </button>
+                  <div class="flex items-center text-gray-400 text-xs">
                     <svg
                       class="w-4 h-4 mr-1"
                       fill="currentColor"
@@ -198,23 +342,23 @@
               </div>
             </div>
 
-            <!-- Card Type 2: Dark Blue Card -->
+            <!-- Leader Profile Card -->
             <div
-              class="custom-dark rounded-xl shadow-lg overflow-hidden card-hover text-white"
+              class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-xl overflow-hidden card-hover text-white"
             >
               <div class="p-6">
-                <div class="flex items-center mb-4">
+                <div class="flex items-center mb-6">
                   <img
                     src="neta g.jpg"
-                    alt="Indian Political Leader"
-                    class="w-16 h-16 rounded-full border-4 border-white/30"
+                    alt="Political Leader"
+                    class="w-16 h-16 rounded-full border-4 border-amber-400"
                   />
                   <div class="ml-4">
                     <h3 class="text-xl font-bold">Vishal Singh</h3>
-                    <p class="text-white/80 text-sm">BJP Leader</p>
+                    <p class="text-gray-300 text-sm">Political Analyst</p>
                   </div>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 mb-4">
+                <div class="glassmorphism rounded-xl p-4 mb-6">
                   <p class="text-sm leading-relaxed">
                     "We must ensure that every citizen of India has access to
                     quality education, healthcare, and employment opportunities
@@ -222,12 +366,25 @@
                   </p>
                 </div>
                 <div class="flex items-center justify-between">
-                  <div class="flex items-center space-x-4 text-sm">
-                    <span>👥 1.1k followers</span>
+                  <div
+                    class="flex items-center space-x-4 text-sm text-gray-300"
+                  >
+                    <span class="flex items-center">
+                      <svg
+                        class="w-4 h-4 mr-1"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      1.1k followers
+                    </span>
                     <span>📊 68% approval</span>
                   </div>
                   <button
-                    class="bg-white text-gray-800 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-colors"
+                    class="bg-amber-500 hover:bg-amber-600 text-black px-4 py-2 rounded-lg text-sm font-bold transition-colors"
                   >
                     Follow
                   </button>
@@ -235,39 +392,39 @@
               </div>
             </div>
 
-            <!-- Card Type 3: Green/White Card -->
+            <!-- Education Reform Card -->
             <div
-              class="custom-dark text-white rounded-xl shadow-lg overflow-hidden card-hover"
+              class="bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-2xl shadow-xl overflow-hidden card-hover"
             >
               <img
                 src="khejriwal.jpg"
-                alt="Indian Government Building"
+                alt="Education"
                 class="w-full h-48 object-cover"
               />
               <div class="p-6">
-                <div class="flex items-center mb-3">
+                <div class="flex items-center mb-4">
                   <span
-                    class="bg-white/20 text-white px-2 py-1 rounded text-xs font-semibold"
-                    >DELHI</span
+                    class="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold"
+                    >EDUCATION</span
                   >
-                  <span class="ml-2 text-white/80 text-xs">5 hours ago</span>
+                  <span class="ml-3 text-gray-300 text-xs">5 hours ago</span>
                 </div>
                 <h3 class="text-xl font-bold mb-3">
-                  Kejriwal's Education Reform Success
+                  Delhi's Education Reform Success Story
                 </h3>
-                <p class="text-white/90 text-sm mb-4 leading-relaxed">
-                  Delhi Chief Minister Arvind Kejriwal announces remarkable
-                  improvements in government school infrastructure and student
-                  performance across the capital.
+                <p class="text-gray-300 text-sm mb-6 leading-relaxed">
+                  Remarkable improvements in government school infrastructure
+                  and student performance across Delhi showcase the power of
+                  focused educational reforms.
                 </p>
                 <div class="flex items-center justify-between">
-                  <span
-                    onclick="openArticle('education-reform')"
-                    class="bg-white text-green-600 px-3 py-1 rounded text-sm font-semibold hover:bg-gray-100 cursor-pointer transition-colors"
+                  <button
+                    
+                    class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors"
                   >
                     Read More
-                  </span>
-                  <div class="flex items-center text-white/70 text-xs">
+                  </button>
+                  <div class="flex items-center text-gray-400 text-xs">
                     <svg
                       class="w-4 h-4 mr-1"
                       fill="currentColor"
@@ -289,296 +446,184 @@
         </section>
 
         <!-- Trending Topics -->
-        <section
-          class="bg-white border border-gray-200 rounded-2xl shadow-lg p-8"
-        >
-          <h2 class="text-2xl font-bold text-gray-800 mb-6" id="Trending">Trending Topics</h2>
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <section id="trending" class="mb-20">
+          <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">
+              Trending Topics
+            </h2>
             <div
-              class="custom-dark  text-white p-4 rounded-lg card-hover cursor-pointer"
-            >
-              <h4 class="font-semibold">#ModiGovernment</h4>
-              <p class="text-sm opacity-90">25K posts</p>
-            </div>
-            <div
-              class="custom-dark text-white p-4 rounded-lg card-hover cursor-pointer"
-            >
-              <h4 class="font-semibold">#DigitalIndia</h4>
-              <p class="text-sm opacity-90">18.5K posts</p>
-            </div>
-            <div
-              class="custom-dark  text-white p-4 rounded-lg card-hover cursor-pointer"
-            >
-              <h4 class="font-semibold">#AatmanirbharBharat</h4>
-              <p class="text-sm opacity-90">32K posts</p>
-            </div>
-            <div
-              class="custom-dark text-white p-4 rounded-lg card-hover cursor-pointer"
-            >
-              <h4 class="font-semibold">#IndiaG20</h4>
-              <p class="text-sm opacity-90">15.7K posts</p>
+              class="w-24 h-1 bg-gradient-to-r from-pink-500 to-violet-600 mx-auto rounded-full"
+            ></div>
+          </div>
+
+          <div class="bg-white rounded-3xl shadow-2xl p-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div
+                class="bg-gradient-to-br from-orange-500 to-red-600 text-white p-6 rounded-2xl card-hover cursor-pointer group"
+              >
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="font-bold text-lg">#ModiGovernment</h4>
+                  <svg
+                    class="w-6 h-6 group-hover:scale-110 transition-transform"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
+                </div>
+                <p class="text-orange-100 text-sm font-medium">
+                  25.3K posts today
+                </p>
+                <div class="mt-3 flex items-center text-xs text-orange-200">
+                  <span class="bg-white/20 px-2 py-1 rounded-full"
+                    >Trending #1</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="bg-gradient-to-br from-blue-500 to-purple-600 text-white p-6 rounded-2xl card-hover cursor-pointer group"
+              >
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="font-bold text-lg">#DigitalIndia</h4>
+                  <svg
+                    class="w-6 h-6 group-hover:scale-110 transition-transform"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"
+                    />
+                  </svg>
+                </div>
+                <p class="text-blue-100 text-sm font-medium">
+                  18.7K posts today
+                </p>
+                <div class="mt-3 flex items-center text-xs text-blue-200">
+                  <span class="bg-white/20 px-2 py-1 rounded-full"
+                    >Trending #2</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="bg-gradient-to-br from-green-500 to-teal-600 text-white p-6 rounded-2xl card-hover cursor-pointer group"
+              >
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="font-bold text-lg">#AatmanirbharBharat</h4>
+                  <svg
+                    class="w-6 h-6 group-hover:scale-110 transition-transform"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <p class="text-green-100 text-sm font-medium">
+                  32.1K posts today
+                </p>
+                <div class="mt-3 flex items-center text-xs text-green-200">
+                  <span class="bg-white/20 px-2 py-1 rounded-full"
+                    >Trending #3</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="bg-gradient-to-br from-purple-500 to-pink-600 text-white p-6 rounded-2xl card-hover cursor-pointer group"
+              >
+                <div class="flex items-center justify-between mb-3">
+                  <h4 class="font-bold text-lg">#IndiaG20</h4>
+                  <svg
+                    class="w-6 h-6 group-hover:scale-110 transition-transform"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9 12a1 1 0 002 0V6.414l1.293 1.293a1 1 0 001.414-1.414L10 2.586a1 1 0 00-1.414 0L4.879 6.293a1 1 0 001.414 1.414L9 6.414V12z"
+                    />
+                    <path
+                      d="M3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                    />
+                  </svg>
+                </div>
+                <p class="text-purple-100 text-sm font-medium">
+                  15.9K posts today
+                </p>
+                <div class="mt-3 flex items-center text-xs text-purple-200">
+                  <span class="bg-white/20 px-2 py-1 rounded-full"
+                    >Trending #4</span
+                  >
+                </div>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
       <!-- Footer -->
-      <footer class="custom-dark text-white py-8 mt-16">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-          <p class="text-gray-300">
-            &copy; 2025 Political Blog. All rights reserved.
-          </p>
-          <div class="mt-4 flex justify-center space-x-6">
-            <a href="#" class="text-gray-400 hover:text-white transition-colors"
-              >Contact</a
-            >
-            <a href="#" class="text-gray-400 hover:text-white transition-colors"
-              >Privacy</a
-            >
-            <a href="#" class="text-gray-400 hover:text-white transition-colors"
-              >About</a
-            >
-          </div>
-        </div>
-      </footer>
+     <footer class="bg-slate-800 py-8 mt-20">
+      <div class="max-w-6xl mx-auto px-6 text-center text-gray-400">
+        &copy; 2025 Vishal Singh. All rights reserved.
+      </div>
+    </footer>
     </div>
 
-    <!-- Article Pages -->
-    <!-- G20 Summit Article -->
-    <div id="g20-summit" class="article-page">
-      <main class="max-w-4xl mx-auto px-4 py-8 mt-16">
-        <button
-          onclick="goBack()"
-          class="mb-6 custom-dark hover:bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors font-medium"
+    <!-- Floating Action Button -->
+    <div class="floating-action">
+      <button
+        onclick="scrollToTop()"
+        class="bg-amber-500 hover:bg-amber-600 text-black p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
         >
-          ← Back to Home
-        </button>
-        
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-          <img
-            src="pm_modi_pti.webp"
-            alt="G20 Summit"
-            class="w-full h-70 object-cover"
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 10l7-7m0 0l7 7m-7-7v18"
           />
-          
-          <div class="p-8">
-            <div class="mb-4">
-              <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">BREAKING</span>
-              <span class="ml-3 text-gray-500 text-sm">Published 2 hours ago</span>
-            </div>
-            
-            <h1 class="text-4xl font-bold text-gray-800 mb-6">
-              India-G20 Summit: Major Policy Decisions
-            </h1>
-
-            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-              India's G20 presidency under Prime Minister Narendra Modi has
-              concluded with unprecedented success, marking a historic milestone
-              in the country's diplomatic journey. The summit, held in New Delhi,
-              brought together world leaders to address critical global
-              challenges.
-            </p>
-
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">
-              Key Achievements
-            </h2>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              The G20 summit achieved several breakthrough agreements, including
-              comprehensive climate action plans, digital transformation
-              initiatives, and economic cooperation frameworks. Prime Minister
-              Modi's leadership in facilitating consensus among diverse nations
-              has been widely praised by international media.
-            </p>
-
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Global Impact</h2>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              The decisions made during India's G20 presidency will have
-              far-reaching implications for developing nations worldwide. The
-              focus on sustainable development, digital inclusion, and climate
-              resilience reflects India's commitment to global welfare and
-              progress.
-            </p>
-
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">
-              Future Implications
-            </h2>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              As India transitions the G20 presidency to Brazil, the foundation
-              laid during this summit will continue to influence international
-              policy and cooperation. The success of India's presidency has
-              elevated the country's status as a key player in global governance.
-            </p>
-          </div>
-        </div>
-      </main>
+        </svg>
+      </button>
     </div>
-
-    <!-- Digital India Article -->
-    <div id="digital-india" class="article-page">
-      <main class="max-w-4xl mx-auto px-4 py-8 mt-16">
-        <button
-          onclick="goBack()"
-          class="mb-6 custom-dark hover:bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors font-medium"
-        >
-          ← Back to Home
-        </button>
-        
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-          <img
-            src="digital.jpg"
-            alt="Digital India"
-            class="w-full h-64 object-cover"
-          />
-          
-          <div class="p-8">
-            <div class="mb-4">
-              <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold">TECHNOLOGY</span>
-              <span class="ml-3 text-gray-500 text-sm">Published 3 hours ago</span>
-            </div>
-            
-            <h1 class="text-4xl font-bold text-gray-800 mb-6">
-              Modi Government Announces Digital India 2.0
-            </h1>
-
-            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-              Prime Minister Narendra Modi today unveiled the ambitious Digital
-              India 2.0 initiative, marking the next phase of India's digital
-              transformation journey. This comprehensive program aims to transform
-              India into a digitally empowered society and knowledge economy.
-            </p>
-
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Key Components</h2>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              Digital India 2.0 encompasses several revolutionary components
-              including nationwide 5G deployment, artificial intelligence
-              integration in governance, blockchain-based service delivery, and
-              comprehensive digital literacy programs reaching every corner of the
-              country.
-            </p>
-
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">
-              Implementation Timeline
-            </h2>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              The initiative will be rolled out in phases over the next five
-              years, with priority given to rural areas and underserved
-              communities. The government has allocated significant resources to
-              ensure successful implementation and measurable outcomes.
-            </p>
-
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Economic Impact</h2>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              Experts predict that Digital India 2.0 will create millions of new
-              jobs, boost GDP growth, and position India as a global leader in
-              digital innovation. The initiative is expected to attract
-              substantial foreign investment and foster entrepreneurship across
-              the nation.
-            </p>
-          </div>
-        </div>
-      </main>
-    </div>
-
-    <!-- Education Reform Article -->
-    <div id="education-reform" class="article-page">
-      <main class="max-w-4xl mx-auto px-4 py-8 mt-16">
-        <button
-          onclick="goBack()"
-          class="mb-6 custom-dark hover:bg-gray-800 text-white px-6 py-3 rounded-lg transition-colors font-medium"
-        >
-          ← Back to Home
-        </button>
-        
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
-          <img
-            src="khejriwal.jpg"
-            alt="Delhi Schools"
-            class="w-full h-64 object-cover"
-          />
-          
-          <div class="p-8">
-            <div class="mb-4">
-              <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">EDUCATION</span>
-              <span class="ml-3 text-gray-500 text-sm">Published 5 hours ago</span>
-            </div>
-            
-            <h1 class="text-4xl font-bold text-gray-800 mb-6">
-              Kejriwal's Education Reform Success
-            </h1>
-
-            <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-              Delhi Chief Minister Arvind Kejriwal announced remarkable
-              improvements in government school infrastructure and student
-              performance across the capital. The comprehensive education reforms
-              implemented over the past few years have yielded extraordinary
-              results.
-            </p>
-
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">
-              Performance Metrics
-            </h2>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              Government school students in Delhi have achieved unprecedented
-              success in board examinations, with pass rates increasing by over
-              40% compared to previous years. The improvement in learning outcomes
-              has been consistent across all subjects and grade levels.
-            </p>
-
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">
-              Infrastructure Development
-            </h2>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              The Delhi government has invested heavily in upgrading school
-              infrastructure, including modern classrooms, laboratories,
-              libraries, and sports facilities. Over 500 schools have been
-              completely renovated, creating world-class learning environments for
-              students.
-            </p>
-
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">
-              Teacher Training Programs
-            </h2>
-            <p class="text-gray-700 mb-6 leading-relaxed">
-              Comprehensive teacher training programs have been implemented to
-              enhance pedagogical skills and incorporate modern teaching
-              methodologies. The focus on continuous professional development has
-              significantly improved the quality of education delivery in
-              government schools.
-            </p>
-          </div>
-        </div>
-      </main>
-    </div>
-
     <script>
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("hidden");
+      }
+
+      // Floating action scroll to top
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Article navigation
       function openArticle(articleId) {
-        // Hide main page
         document.getElementById("mainPage").classList.add("hidden");
-
-        // Show selected article page
+        document
+          .querySelectorAll(".article-page")
+          .forEach((page) => page.classList.remove("active"));
         document.getElementById(articleId).classList.add("active");
-
-        // Scroll to top
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
       function goBack() {
-        // Hide all article pages
-        const articlePages = document.querySelectorAll(".article-page");
-        articlePages.forEach((page) => {
-          page.classList.remove("active");
-        });
-
-        // Show main page
         document.getElementById("mainPage").classList.remove("hidden");
-
-        // Scroll to top
-        window.scrollTo(0, 0);
-      }
-
-      function toggleMobileMenu() {
-        const mobileMenu = document.getElementById("mobileMenu");
-        mobileMenu.classList.toggle("hidden");
+        document
+          .querySelectorAll(".article-page")
+          .forEach((page) => page.classList.remove("active"));
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     </script>
   </body>
